@@ -1,0 +1,26 @@
+{
+	"folders": [
+		{
+			"name": "ObstacleAssault",
+			"path": "."
+		},
+		{
+			"name": "UE5",
+			"path": "C:\\Program Files\\Epic Games\\UE_5.0"
+		}
+	],
+	"settings": {
+		"typescript.tsc.autoDetect": "off",
+		"C_Cpp.default.forcedInclude": [
+			"${default}",
+			"C:\\Users\\wjdru\\OneDrive - 충남대학교\\U PROJECT\\UE_P\\ObstacleAssault\\Intermediate\\Build\\Win64\\UnrealEditor\\Development\\ObstacleAssault\\Definitions.ObstacleAssault.h",
+			"C:\\Users\\wjdru\\OneDrive - 충남대학교\\U PROJECT\\UE_P\\ObstacleAssault\\Intermediate\\Build\\Win64\\ObstacleAssaultEditor\\Development\\Engine\\SharedPCH.Engine.ShadowErrors.h"
+		]
+	},
+	"extensions": {
+		"recommendations": [
+			"ms-vscode.cpptools",
+			"ms-dotnettools.csharp"
+		]
+	}
+}
