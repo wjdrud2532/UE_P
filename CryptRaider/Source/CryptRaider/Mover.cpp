@@ -34,16 +34,18 @@ void UMover::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponent
 	//
 	// UE_LOG(LogTemp, Display, TEXT("Mover Owner: %s with location %s"), *Name, *OwnerLocationString);
 
+		FVector TargetLocation = OriginalLocation;
+
 	if (ShouldMove)
 	{
+		TargetLocation = OriginalLocation  + MoveOffset;
+	}
 		FVector CurrentLocation = GetOwner()->GetActorLocation();
-		FVector TargetLocation = OriginalLocation + MoveOffset;
-		float Speed = FVector::Distance(OriginalLocation, TargetLocation) / MoveTime;
+		float Speed = MoveOffset.Length() / MoveTime;
 
 		FVector NewLocation = FMath::VInterpConstantTo(CurrentLocation, TargetLocation, DeltaTime, Speed);
 
 		GetOwner()->SetActorLocation(NewLocation);
-	}
 }
 
 void UMover::SetShouldMove(bool NewShouldMove)

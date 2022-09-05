@@ -30,7 +30,7 @@ void UTriggerComponent::TickComponent(float DeltaTime, ELevelTick TickType, FAct
     AActor *Actor = GetAcceptableActor();
     if (Actor != nullptr)
     {
-        UE_LOG(LogTemp, Display, TEXT("true -------"));
+        UE_LOG(LogTemp, Display, TEXT("true %f"), DeltaTime);
         UPrimitiveComponent* Component = Cast<UPrimitiveComponent>(Actor->GetRootComponent());
         if(Component != nullptr)
         {
@@ -42,7 +42,7 @@ void UTriggerComponent::TickComponent(float DeltaTime, ELevelTick TickType, FAct
     }
     else
     {
-        UE_LOG(LogTemp, Display, TEXT("false -----"));
+        UE_LOG(LogTemp, Display, TEXT("false %f"), DeltaTime);
         Mover->SetShouldMove(false);
         // UE_LOG(LogTemp, Display, TEXT("Relocking111111"));
     }
@@ -67,8 +67,12 @@ AActor *UTriggerComponent::GetAcceptableActor() const
 
     for (AActor *Actor : Actors)
     {
-        if (Actor->ActorHasTag(AcceptableActorTag))
+
+        bool HasAcceptableTag = Actor->ActorHasTag(AcceptableActorTag);
+        bool IsGrabbed = Actor->ActorHasTag("Grabbed");
+        if (HasAcceptableTag && !IsGrabbed)
         {
+            
             UE_LOG(LogTemp, Display, TEXT("actor cccccc"));
             return Actor;
             //
