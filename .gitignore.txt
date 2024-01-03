@@ -1,0 +1,9 @@
+.vscode/
+Config/
+Content/
+Intermediate/
+Saved/
+
+
+*.uasset
+*.umap
