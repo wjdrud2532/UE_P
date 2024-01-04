@@ -8,3 +8,6 @@ Saved/
 *.uasset
 *.umap
 *.rsp
+*.exe
+*.pdb
+*.uproject
