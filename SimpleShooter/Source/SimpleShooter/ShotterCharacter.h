@@ -28,7 +28,13 @@ public:
 
 private:
 	void MoveForward(float AxisValue);
-	// void LookUp(float AxisValue);
 	void MoveRight(float AxisValue);
+	void LookUpRate(float AxisValue);
 	// void Jump();
+
+	UPROPERTY(EditAnywhere)
+	float RotationRate = 10;
+
+	// UPROPERTY(EditDefaultsOnly)
+	// TSubclassOf<class AGun> GunClass;
 };

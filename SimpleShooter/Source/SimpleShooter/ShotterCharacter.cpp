@@ -37,6 +37,7 @@ void AShotterCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCo
 
 	PlayerInputComponent->BindAxis(TEXT("MoveRight"), this, &AShotterCharacter::MoveRight);
 	PlayerInputComponent->BindAxis(TEXT("LookRight"), this, &APawn::AddControllerYawInput);
+	PlayerInputComponent->BindAxis(TEXT("LookUpRate"), this, &AShotterCharacter::LookUpRate);
 
 	PlayerInputComponent->BindAction(TEXT("Jump"), EInputEvent::IE_Pressed, this, &ACharacter::Jump);
 
@@ -52,14 +53,14 @@ void AShotterCharacter::MoveRight(float AxisValue)
 	AddMovementInput(GetActorRightVector() * AxisValue);
 }
 
+void AShotterCharacter::LookUpRate(float AxisValue)
+{
+	AddControllerPitchInput(AxisValue * RotationRate * GetWorld()->GetDeltaSeconds());
+}
+
 
 // void AShotterCharacter::Jump()
 // {
 // 	AddJumpInput();
-// }
-
-// void AShotterCharacter::LookUp(float AxisValue)
-// {
-// 	AddControllerPitchInput(AxisValue);
 // }
 
